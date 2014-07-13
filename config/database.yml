@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: playa-planner_development
+  pool: 5
+  username: rachelhay
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: playa-planner_test
+  pool: 5
+  username: rachelhay
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: playa-planner_production
+  pool: 5
+  username: rachelhay
+  password:

@@ -31,3 +31,4 @@ end
 
 gem 'devise'
 gem 'figaro'
+gem 'angularjs-rails'

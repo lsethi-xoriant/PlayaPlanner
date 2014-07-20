@@ -17,19 +17,13 @@ ActiveRecord::Schema.define(version: 20140714000246) do
   enable_extension "plpgsql"
 
   create_table "items", force: true do |t|
-    t.integer  "list_id",    null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "items", ["list_id"], name: "index_items_on_list_id", using: :btree
-
-  create_table "lists", force: true do |t|
     t.integer  "user_id"
+    t.string   "name",                       null: false
+    t.boolean  "checked",    default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "lists", ["user_id"], name: "index_lists_on_user_id", using: :btree
+  add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
 
 end

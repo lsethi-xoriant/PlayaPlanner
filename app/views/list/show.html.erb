@@ -1,1 +1,14 @@
 <h1>Playa Packing List</h1>
+
+<div ng-controller="ListCtrl">
+	<form ng-submit="addItem()">
+		<input type="text" ng-model="newItem.name">
+		<input type="submit" value="Add">
+	</form>
+
+	<ul>
+		<li ng-repeat="item in items">
+			{{item.name}}
+		</li>
+	</ul>
+</div>

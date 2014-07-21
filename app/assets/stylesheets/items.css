@@ -1,0 +1,9 @@
+.done-true {
+  text-decoration: line-through;
+  color: #949494;
+}
+
+.list-item {
+	list-style: none;
+	margin: 10px 0px;
+}

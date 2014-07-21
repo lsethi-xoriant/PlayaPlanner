@@ -11,4 +11,8 @@ app.factory "Item", ["$resource", ($resource) ->
 		item = Item.save($scope.newItem)
 		$scope.items.push(item)
 		$scope.newItem = {}
+
+	$scope.checkItem = (item) ->
+		item.checked = !item.checked
+		item.$update()
 ]

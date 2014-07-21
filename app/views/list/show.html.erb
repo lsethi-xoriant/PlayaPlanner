@@ -1,14 +1,25 @@
 <h1>Playa Packing List</h1>
 
 <div ng-controller="ListCtrl">
-	<form ng-submit="addItem()">
-		<input type="text" ng-model="newItem.name">
-		<input type="submit" value="Add">
-	</form>
+	<div class="row">
+		<div class="col-sm-12"
+			<ul>
+				<li ng-repeat="item in items" class="list-item">
+					<input type="checkbox" ng-model="item.checked" class="large" ng-click="checkItem(item)">
+					<span class="done-{{item.checked}}">{{item.name}}</span>
+				</li>
+			</ul>
+		</div>
+	</div>
 
-	<ul>
-		<li ng-repeat="item in items">
-			{{item.name}}
-		</li>
-	</ul>
+	<div class="row">
+		<form ng-submit="addItem()">
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="newItem.name">
+			</div>
+			<div class="col-sm-1">
+				<input type="submit" class="btn btn-info" value="Add">
+			</div>
+		</form>
+	</div>
 </div>

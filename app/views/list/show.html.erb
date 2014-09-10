@@ -6,8 +6,15 @@
 			<ul>
 				<li ng-repeat="item in items" class="list-item">
 					<input type="checkbox" ng-model="item.checked" class="large" ng-click="checkItem(item)">
-					<span class="done-{{item.checked}}">{{item.name}}</span>
-					<a href="#" ng-click="deleteItem(item)" >Delete</a>
+					<span ng-dblclick="editItem(item)" class="done-{{item.checked}} hide-{{item.editing}}">{{item.name}}</span>
+
+					<span class="show-{{item.editing}}">
+						<form ng-submit="doneEditing(item)">
+							<input type="text" class="form-control" value="{{item.name}}" ng-model="item.name" ng-blur="doneEditing(item)" autofocus>
+						</form>
+					</span>
+
+					<a href="#" ng-click="deleteItem(item)">Delete</a>
 				</li>
 			</ul>
 		</div>

@@ -20,4 +20,12 @@ app.factory "Item", ["$resource", ($resource) ->
 		item.$destroy()
 		$scope.items.splice($scope.items.indexOf(item), 1);
 
+	$scope.editItem = (item) ->
+		item.editing = true
+		item.$update()
+
+	$scope.doneEditing = (item) ->
+		item.$update()
+		item.editing = false
+		item.$update()
 ]

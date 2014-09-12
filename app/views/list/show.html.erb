@@ -10,7 +10,9 @@
 
 					<span class="show-{{item.editing}}">
 						<form ng-submit="doneEditing(item)">
-							<input type="text" class="form-control" value="{{item.name}}" ng-model="item.name" ng-blur="doneEditing(item)" autofocus>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" value="{{item.name}}" ng-model="item.name" ng-blur="doneEditing(item)" autofocus>
+							</div>
 						</form>
 					</span>
 
@@ -23,7 +25,7 @@
 	<div class="row">
 		<form ng-submit="addItem()">
 			<div class="col-sm-4">
-				<input type="text" class="form-control" ng-model="newItem.name">
+				<input type="text" class="form-control" ng-model="newItem.name" placeholder="Add item">
 			</div>
 			<div class="col-sm-1">
 				<input type="submit" class="btn btn-info" value="Add">

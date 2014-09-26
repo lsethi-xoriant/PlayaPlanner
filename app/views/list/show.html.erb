@@ -3,8 +3,9 @@
 <div ng-controller="ListCtrl">
 	<div class="row">
 		<div class="col-sm-12"
-			<ul>
-				<li ng-repeat="item in items" class="list-item">
+			<ul ng-repeat="itemPerCategory in itemsToFilter() | filter:filterCategories | orderBy:'category'">
+				<h2>{{ itemPerCategory.category }}</h2>
+				<li ng-repeat="item in items | filter:{category: itemPerCategory.category}" class="list-item">
 					<input type="checkbox" ng-model="item.checked" class="large" ng-click="checkItem(item)">
 					<span ng-dblclick="editItem(item)" class="done-{{item.checked}} hide-{{item.editing}}">{{item.name}}</span>
 

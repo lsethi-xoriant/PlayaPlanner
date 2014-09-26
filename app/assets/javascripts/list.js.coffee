@@ -7,6 +7,8 @@ app.factory "Item", ["$resource", ($resource) ->
 @ListCtrl = ["$scope", "Item", ($scope, Item) ->
 	$scope.items = Item.query()
 
+	indexedCategories = []
+
 	$scope.addItem = ->
 		item = Item.save($scope.newItem)
 		$scope.items.push(item)
@@ -28,4 +30,16 @@ app.factory "Item", ["$resource", ($resource) ->
 		item.$update()
 		item.editing = false
 		item.$update()
+
+	$scope.itemsToFilter = ->
+		indexedCategories = []
+		return $scope.items
+
+	$scope.filterCategories = (item) ->
+		categoryIsNew = indexedCategories.indexOf(item.category) == -1
+		if categoryIsNew
+			indexedCategories.push(item.category)
+		return categoryIsNew
+
 ]
+

@@ -1,27 +1,36 @@
-<h1>)'( Playa Packing List</h1>
+<h1 class="text-center">)'( Playa Packing List</h1>
 
 <div ng-controller="ListCtrl">
-	<div class="row">
-		<div class="col-sm-12"
-			<ul ng-repeat="itemPerCategory in itemsToFilter() | filter:filterCategories | orderBy:'category'">
-				<h2>{{ itemPerCategory.category }}</h2>
-				<li ng-repeat="item in items | filter:{category: itemPerCategory.category}" class="list-item">
-					<input type="checkbox" ng-model="item.checked" class="large" ng-click="checkItem(item)">
-					<span ng-dblclick="editItem(item)" class="done-{{item.checked}} hide-{{item.editing}}">{{item.name}}</span>
 
-					<span class="show-{{item.editing}}">
-						<form ng-submit="doneEditing(item)">
-							<div class="col-sm-4">
-								<input type="text" class="form-control" value="{{item.name}}" ng-model="item.name" ng-blur="doneEditing(item)" autofocus>
-							</div>
-						</form>
-					</span>
+	<ul ng-repeat="itemPerCategory in itemsToFilter() | filter:filterCategories | orderBy:'category'">
+		<div class="row panel panel-default panel-category panel-{{ itemPerCategory.category }}">
+			<div class="panel-heading">
+				<h2 class="panel-title">{{ itemPerCategory.category }}</h2>
+			</div>
+			<li ng-repeat="item in items | filter:{category: itemPerCategory.category} | orderBy:'name'" class="list-item col-md-4 col-sm-6">
+				<input type="checkbox" ng-model="item.checked" class="large" ng-click="checkItem(item)">
+				<span ng-dblclick="editItem(item)" class="done-{{item.checked}} hide-{{item.editing}}">{{item.name}}</span>
 
-					<a href="#" ng-click="deleteItem(item)">Delete</a>
-				</li>
-			</ul>
+				<span class="show-{{item.editing}}">
+					<form ng-submit="doneEditing(item)">
+						<div class="col-sm-4">
+							<input type="text" class="form-control" value="{{item.name}}" ng-model="item.name" ng-blur="doneEditing(item)" autofocus>
+						</div>
+					</form>
+				</span>
+
+				<a href="#" ng-click="deleteItem(item)">Delete</a>
+			</li>
 		</div>
-	</div>
+	</ul>
+	<ul>
+		<div class="row panel panel-default panel-category panel-notes">
+			<div class="panel-heading">
+				<h2 class="panel-title">Notes</h2>
+			</div>
+			Add notes input here
+		</div>
+	</ul>
 
 	<div class="row">
 		<form ng-submit="addItem()">

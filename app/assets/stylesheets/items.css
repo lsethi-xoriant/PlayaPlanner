@@ -11,3 +11,33 @@
 .show-false, .hide-true {
 	display: none;
 }
+
+.panel-category {
+	margin: 40px 0px;
+}
+
+.panel-title {
+	color: #FFF;
+}
+
+.panel-Camp .panel-heading, .panel-notes .panel-heading {
+	background-color: #2A042B;
+}
+
+.panel-Clothing .panel-heading, .panel-Toiletries .panel-heading {
+	background-color: #591544;
+}
+
+.panel-Documents .panel-heading, .panel-Personal .panel-heading {
+	background-color: #932E40;
+}
+
+.panel-Food .panel-heading, .panel-Miscellaneous .panel-heading {
+	background-color: #9D5115;
+}
+
+.panel-Medicine .panel-heading {
+	background-color: #DA9313;
+}
+
+

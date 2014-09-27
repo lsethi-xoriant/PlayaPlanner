@@ -9,10 +9,9 @@ app.factory "Item", ["$resource", ($resource) ->
 
 	indexedCategories = []
 
-	$scope.addItem = ->
-		item = Item.save($scope.newItem)
+	$scope.addItem = (category, newItemName) ->
+		item = Item.save({name: newItemName, category: category, necessity: true, default: false})
 		$scope.items.push(item)
-		$scope.newItem = {}
 
 	$scope.checkItem = (item) ->
 		item.checked = !item.checked
@@ -43,3 +42,5 @@ app.factory "Item", ["$resource", ($resource) ->
 
 ]
 
+$(document).on 'click', '.add-item-button', ->
+	$(".add-item-form input[type='text']").val('')

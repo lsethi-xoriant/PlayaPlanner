@@ -35,6 +35,6 @@ class ItemsController < ApplicationController
 	private
   
   def item_params
-    params.required(:item).permit(:user_id, :name, :checked, :editing)
+    params.required(:item).permit(:user_id, :name, :checked, :editing, :category, :default, :necessity)
   end
 end

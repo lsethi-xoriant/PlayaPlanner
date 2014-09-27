@@ -21,6 +21,16 @@
 
 				<a href="#" ng-click="deleteItem(item)">Delete</a>
 			</li>
+			<li class="list-item col-md-4 col-sm-6 pull-right">
+				<form class='add-item-form' ng-submit="addItem(itemPerCategory.category, newItem.name)">
+					<div class="col-sm-9">
+						<input type="text" class="form-control" ng-model="newItem.name" placeholder="Add item">
+					</div>
+					<div class="col-sm-1">
+						<input type="submit" class="btn add-item-button" value="Add">
+					</div>
+				</form>
+			</li>
 		</div>
 	</ul>
 	<ul>
@@ -31,15 +41,4 @@
 			Add notes input here
 		</div>
 	</ul>
-
-	<div class="row">
-		<form ng-submit="addItem()">
-			<div class="col-sm-4">
-				<input type="text" class="form-control" ng-model="newItem.name" placeholder="Add item">
-			</div>
-			<div class="col-sm-1">
-				<input type="submit" class="btn btn-info" value="Add">
-			</div>
-		</form>
-	</div>
 </div>

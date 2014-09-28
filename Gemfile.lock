@@ -72,6 +72,8 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    font-awesome-rails (4.1.0.0)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.5)
     guard (2.6.1)
       formatador (>= 0.2.4)
@@ -206,6 +208,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   figaro
+  font-awesome-rails
   guard-rspec
   jquery-rails
   launchy

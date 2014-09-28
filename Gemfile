@@ -32,3 +32,4 @@ end
 gem 'devise'
 gem 'figaro'
 gem 'angularjs-rails'
+gem 'font-awesome-rails'

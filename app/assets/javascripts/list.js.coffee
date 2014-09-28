@@ -42,5 +42,18 @@ app.factory "Item", ["$resource", ($resource) ->
 
 ]
 
-$(document).on 'click', '.add-item-button', ->
-	$(".add-item-form input[type='text']").val('')
+app.directive 'listItem', ->
+	restrict: 'C',
+	link: (scope, iterStartElement, attr) ->
+		$('.item-information').mouseenter ->
+			$(this).find('i.delete-task').css({'color': '#a94442'})
+
+		$('.item-information').mouseleave ->
+			$(this).find('i.delete-task').css({'color': '#FFF'})
+
+app.directive 'addItemButton', ->
+	restrict: 'C',
+	link: (scope, iterStartElement, attr) ->
+		$('.add-item-button').click ->
+			$(this).parents('.add-item-form').find("input[type='text']").val('')
+

@@ -44,7 +44,7 @@ app.factory "Item", ["$resource", ($resource) ->
 
 app.directive 'listItem', ->
 	restrict: 'C',
-	link: (scope, iterStartElement, attr) ->
+	link: (scope, element, attr) ->
 		$('.item-information').mouseenter ->
 			$(this).find('i.delete-task').css({'color': '#a94442'})
 
@@ -53,7 +53,6 @@ app.directive 'listItem', ->
 
 app.directive 'addItemButton', ->
 	restrict: 'C',
-	link: (scope, iterStartElement, attr) ->
+	link: (scope, element, attr) ->
 		$('.add-item-button').click ->
 			$(this).parents('.add-item-form').find("input[type='text']").val('')
-

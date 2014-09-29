@@ -17,18 +17,14 @@
 						</span>
 						<span ng-dblclick="editItem(item)" ng-click="checkItem(item)" class="done-{{item.checked}} hide-{{item.editing}} item-name">
 							{{item.name}}
-						</span>
-						<span class="show-{{item.editing}}">
-							<form ng-submit="doneEditing(item)">
-								<div class="col-sm-10">
-									<input type="text" class="form-control" value="{{item.name}}" ng-model="item.name" ng-blur="doneEditing(item)" autofocus>
-								</div>
-							</form>
-						</span>
-						<span>
 							<a href="#" ng-click="deleteItem(item)">
 								<i class="text-white fa fa-times delete-task"></i>
 							</a>
+						</span>
+						<span class="show-{{item.editing}}">
+							<form ng-submit="doneEditing(item)">
+								<input type="text" class="form-control" value="{{item.name}}" ng-model="item.name" ng-blur="doneEditing(item)">
+							</form>
 						</span>
 					</div>
 				</li>

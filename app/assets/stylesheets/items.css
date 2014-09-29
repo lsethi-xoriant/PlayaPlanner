@@ -4,11 +4,11 @@
 }
 
 .show-false, .hide-true {
-	display: none;
+	display: none !important;
 }
 
 .hide-false, .show-true {
-	display: inline-block;
+	display: inline-block !important;
 }
 
 .list-item {
@@ -21,11 +21,15 @@
 	display: inline-block;
 }
 
-.item-name, .delete-task {
+.item-name {
 	position: relative;
 	top: -5px;
 	margin-left: 5px;
 	display: inline-block;
+}
+
+.delete-task {
+	margin-left: 5px;
 }
 
 .text-white {

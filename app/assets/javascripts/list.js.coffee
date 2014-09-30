@@ -42,6 +42,7 @@ app.factory "Item", ["$resource", ($resource) ->
 
 ]
 
+
 app.directive 'listItem', ->
 	restrict: 'C',
 	link: (scope, element, attr) ->
@@ -51,8 +52,13 @@ app.directive 'listItem', ->
 		$('.item-information').mouseleave ->
 			$(this).find('i.delete-task').css({'color': '#FFF'})
 
+		$('.item-information').on 'dblclick', ->
+			$('.edit-item-input').focus()
+
+
 app.directive 'addItemButton', ->
 	restrict: 'C',
 	link: (scope, element, attr) ->
 		$('.add-item-button').click ->
 			$(this).parents('.add-item-form').find("input[type='text']").val('')
+

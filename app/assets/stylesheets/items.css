@@ -17,6 +17,10 @@
 	max-height: 52px;
 }
 
+i.checkbox {
+	cursor: pointer;
+}
+
 .checkbox, .item-information {
 	display: inline-block;
 }
@@ -34,6 +38,11 @@
 
 .text-white {
 	color: #FFF;
+}
+
+.edit-item-input {
+	position: relative;
+	top: -7px;
 }
 
 .row.new-item-row {

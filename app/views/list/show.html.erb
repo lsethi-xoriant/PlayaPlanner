@@ -23,7 +23,7 @@
 						</span>
 						<span class="show-{{item.editing}}">
 							<form ng-submit="doneEditing(item)">
-								<input type="text" class="form-control" value="{{item.name}}" ng-model="item.name" ng-blur="doneEditing(item)">
+								<input type="text" class="form-control edit-item-input" value="{{item.name}}" ng-model="item.name" ng-blur="doneEditing(item)">
 							</form>
 						</span>
 					</div>

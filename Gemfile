@@ -29,7 +29,7 @@ group :test do
   gem 'launchy'
 end
 
-gem 'devise'
+gem 'bcrypt'
 gem 'figaro'
 gem 'angularjs-rails'
 gem 'font-awesome-rails'

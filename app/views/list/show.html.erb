@@ -1,39 +1,41 @@
 <h1 class="text-center">)'( Playa Packing List</h1>
 <div ng-controller="ListCtrl">
-	<ul ng-repeat="itemPerCategory in itemsToFilter() | filter:filterCategories | orderBy:'category'">
+	<ul ng-repeat="itemPerCategory in itemsToFilter() | filter:filterCategories | orderBy:'category'" class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
 		<div class="panel panel-default panel-category panel-{{ itemPerCategory.category }}">
 
 			<div class="panel-heading">
 				<h2 class="panel-title">{{ itemPerCategory.category }}</h2>
 			</div>
 			<div class="row">
-				<li ng-repeat="item in items | filter:{category: itemPerCategory.category} | orderBy:'created_at'" class="list-item col-md-4 col-sm-6">
-					<div class="item-information">
-						<span ng-click="checkItem(item)">
-							<i class="checkbox show-{{item.checked}} fa fa-check-square-o fa-2x"></i>
-						</span>
-						<span ng-click="checkItem(item)">
-							<i class="checkbox hide-{{item.checked}} fa fa-square-o fa-2x"></i>
-						</span>
-						<span ng-dblclick="editItem(item)" ng-click="checkItem(item)" class="done-{{item.checked}} hide-{{item.editing}} item-name">
-							{{item.name}}
-							<a href="#" ng-click="deleteItem(item)">
-								<i class="text-white fa fa-times delete-task"></i>
-							</a>
-						</span>
-						<span class="show-{{item.editing}}">
-							<form ng-submit="doneEditing(item)">
-								<input type="text" class="form-control edit-item-input" value="{{item.name}}" ng-model="item.name" ng-blur="doneEditing(item)">
-							</form>
-						</span>
-					</div>
-				</li>
+				<div class="col-md-12 col-sm-12">
+					<li ng-repeat="item in items | filter:{category: itemPerCategory.category} | orderBy:'created_at'" class="list-item col-md-6">
+						<div class="item-information">
+							<span ng-click="checkItem(item)">
+								<i class="checkbox show-{{item.checked}} fa fa-check-square-o fa-2x"></i>
+							</span>
+							<span ng-click="checkItem(item)">
+								<i class="checkbox hide-{{item.checked}} fa fa-square-o fa-2x"></i>
+							</span>
+							<span ng-dblclick="editItem(item)" ng-click="checkItem(item)" class="done-{{item.checked}} hide-{{item.editing}} item-name">
+								{{item.name}}
+								<a href="#" ng-click="deleteItem(item)">
+									<i class="text-white fa fa-times delete-task"></i>
+								</a>
+							</span>
+							<span class="show-{{item.editing}}">
+								<form ng-submit="doneEditing(item)">
+									<input type="text" class="form-control edit-item-input" value="{{item.name}}" ng-model="item.name" ng-blur="doneEditing(item)">
+								</form>
+							</span>
+						</div>
+					</li>
+				</div>
 			</div>
 		
 			<div class="row new-item-row">
-				<li class="list-item col-md-12 pull-right">
+				<li class="list-item col-md-12">
 					<form class='add-item-form' ng-submit="addItem(itemPerCategory.category, newItem.name)">
-						<div class="col-sm-6 pull-right">
+						<div class="col-sm-12">
 							<div class="input-group">
 					      <input type="text" class="form-control" ng-model="newItem.name" placeholder="Add item">
 				      	<span class="input-group-btn">
@@ -46,7 +48,7 @@
 			</div>
 		</div>
 	</ul>
-	<ul>
+	<ul class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
 		<div class="row panel panel-default panel-category panel-notes">
 			<div class="panel-heading">
 				<h2 class="panel-title">Notes</h2>

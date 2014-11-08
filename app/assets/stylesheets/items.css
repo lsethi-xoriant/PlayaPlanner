@@ -1,8 +1,9 @@
 #packing-list-header {
 	margin-top: 80px;
+	color: #2E2E2E;
 }
 
-.done-true {
+.item-name.done-true {
   text-decoration: line-through;
   color: #949494;
 }
@@ -34,6 +35,7 @@ i.checkbox {
 	top: -5px;
 	margin-left: 5px;
 	display: inline-block;
+	color: #383838;
 }
 
 .delete-task {
@@ -58,16 +60,12 @@ i.checkbox {
 }
 
 .panel-title {
-	color: #FFF;
+	color: #fcfcf4;
 	font-size: 18px;
 }
 
 .panel input[type='submit'] {
 	color: #FFF;
-}
-
-.panel input[type='submit']:hover {
-	color: ;
 }
 
 .panel-Camp .panel-heading, 

@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 	respond_to :json
 
 	def index
-		render json: Item.all #change to user's items
+		render json: current_user.items
 	end
 
 	def create

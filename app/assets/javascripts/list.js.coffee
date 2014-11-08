@@ -42,7 +42,6 @@ app.factory "Item", ["$resource", ($resource) ->
 
 ]
 
-
 app.directive 'listItem', ->
 	restrict: 'C',
 	link: (scope, element, attr) ->
@@ -54,7 +53,6 @@ app.directive 'listItem', ->
 
 		$('.item-information').on 'dblclick', ->
 			$('.edit-item-input').focus()
-
 
 app.directive 'addItemButton', ->
 	restrict: 'C',

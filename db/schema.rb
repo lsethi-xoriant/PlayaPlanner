@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20141001045731) do
   add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
+    t.string   "username"
+    t.string   "password_digest"
     t.string   "session_token",   null: false
     t.boolean  "guest"
     t.datetime "created_at"
@@ -40,6 +40,5 @@ ActiveRecord::Schema.define(version: 20141001045731) do
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
-  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

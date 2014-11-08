@@ -3,13 +3,19 @@ class User < ActiveRecord::Base
 	attr_reader :password
 
 	before_validation :ensure_session_token
-	validates :password_digest, :presence => { :message => "Password can't be blank" }
-	validates :password, length: { minimum: 6, allow_nil: true }
-	validates :username, uniqueness: true
-	after_create :initialize_default_items
+	
+	validates :password_digest, :username, presence: true, unless: :guest
+	validates :password, length: { minimum: 6, allow_nil: true }#, unless: :guest
+	validates :username, uniqueness: true, allow_nil: true
+	
+	after_create :initialize_default_items, if: :guest #all users start as guest
 
 	has_many :items, dependent: :destroy
 	has_one :current_session_token
+
+	def self.new_guest
+		self.create { |user| user.guest = true }
+	end
 
 	def self.find_by_credentials(username, password)
 		user = User.find_by(username: username)
@@ -29,6 +35,14 @@ class User < ActiveRecord::Base
 		self.session_token = SecureRandom::urlsafe_base64(16)
 		self.save
 		self.session_token
+	end
+
+	def move_to(user)
+		self.items.update_all(user_id: user.id)
+	end
+
+	def name
+		self.username || "Guest"
 	end
 	
 	private

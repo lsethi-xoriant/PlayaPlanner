@@ -60,3 +60,5 @@ app.directive 'addItemButton', ->
 		$('.add-item-button').click ->
 			$(this).parents('.add-item-form').find("input[type='text']").val('')
 
+$ ->
+	initializeCollapse

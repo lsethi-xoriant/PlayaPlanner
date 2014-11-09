@@ -7,7 +7,8 @@ class ItemsController < ApplicationController
 
 	def create
 		item = Item.new(item_params)
-		if item.save!
+		item.user_id = current_user.id
+		if item.save
 			render json: item
 		else
 			render json: item.errors.full_messages, status: :unprocessable_entity
@@ -35,6 +36,6 @@ class ItemsController < ApplicationController
 	private
   
   def item_params
-    params.required(:item).permit(:user_id, :name, :checked, :editing, :category, :default, :necessity)
+    params.required(:item).permit(:name, :checked, :editing, :category, :default, :necessity)
   end
 end

@@ -51,8 +51,12 @@ i.checkbox {
 	top: -7px;
 }
 
+.item-edit-instructions {
+	padding-right: 40px;
+}
+
 .row.new-item-row {
-	margin: 50px 0px 30px;
+	margin: 25px 0px 30px;
 }
 
 .panel-category {

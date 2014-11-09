@@ -8,4 +8,5 @@ An app to help plan for for festivals, burning man & camping trips: [playa-plann
 
 ###To Do
 -Emailing & sharing packing lists  
--drag-and-drop items to reorder
+-drag-and-drop items to reorder  
+-progress bar

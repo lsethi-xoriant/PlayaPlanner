@@ -1,0 +1,17 @@
+body {
+	background-image: image-url('congruent_outline3.png');
+}
+
+.navbar a, 
+.navbar-nav, 
+.navbar p {
+	color: #fcfcf4 !important;
+}
+
+.navbar-inverse {
+	background-color: #2E2E2E !important;
+}
+
+.navbar-inverse .dropdown-menu a{
+	color: #383838 !important;
+}

@@ -3,4 +3,5 @@ PlayaPlanner::Application.routes.draw do
 	resources :users, :only => [:create]
 	resource :session, :only => [:create, :destroy]
 	resources :items, only: [:index, :create, :update, :destroy]
+	get '/print' => 'list#print'
 end

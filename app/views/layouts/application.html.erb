@@ -10,7 +10,7 @@
 <body data-guest='<%= current_user.guest %>'>
   <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
     <div class="container">
-    	<a class="navbar-brand" href="#">)'( Playa Planner</a>
+    	<a class="navbar-brand" href="#">Playa Planner</a>
       <p class="navbar-text">
       	Welcome, <%= current_user.name %>  
       </p>
@@ -24,8 +24,12 @@
   	          </li>
   	          <li class="divider"></li>
             <% end %>
-            <li><a href="#">Print</a></li>
-            <li><a href="#">Email</a></li>
+            <li>
+              <a href="<%= print_path %>" target="_blank">Print</a>
+            </li>
+     <!--        <li>
+              <a href="#">Email</a>
+            </li> -->
           </ul>
         </li>
         <li>

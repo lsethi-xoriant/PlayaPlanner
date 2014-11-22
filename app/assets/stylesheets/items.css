@@ -1,6 +1,5 @@
-#packing-list-header {
+#list-main {
 	margin-top: 80px;
-	color: #2E2E2E;
 }
 
 .item-name.done-true {
@@ -20,6 +19,7 @@
 	list-style: none;
 	font-size: 16px;
 	max-height: 52px;
+	cursor: pointer;
 }
 
 i.checkbox {
@@ -59,7 +59,7 @@ i.checkbox {
 	margin: 25px 0px 30px;
 }
 
-.panel-category {
+.panel-category, .intro-panel {
 	margin: 25px 0px;
 }
 

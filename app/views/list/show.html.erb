@@ -1,85 +1,123 @@
-<h1 class="text-center" id="packing-list-header">Playa Packing List</h1>
 <div ng-controller="ListCtrl" id="list-main">
-	
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-		
-		<ul ng-repeat="itemPerCategory in itemsToFilter() | filter:filterCategories | orderBy:'category'" class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+	<div class="col-md-4">
+		<div class="panel panel-default intro-panel">
+  		<div class="panel-body">
+  			<p>
+    			<b>Welcome to Playa Planner!</b>
+  			</p>  
+				<p>
+  				Sign in to view your items, or use these pre-populated items to start. When you're done - save, print, or email your list.
+    		</p>
+    		<p>
+					<b>Tip:</b>&nbsp;&nbsp;Double click on an item to edit
+				</p>
+  		</div>
+		</div>
+		<div class="panel panel-default intro-panel">
+  		<div class="panel-body">
+  			<p>
+    			<b>Create a List!</b>
+  			</p>  
+  			<p class='text-muted'>
+  				Note: You've already edited your list.  Changing this will overwrite any changes you've made and allow you to start fresh.
+  			</p>
+				<p>
+  				Choose an option to select your pre-populated items. I'm packing:
+    		</p>
+    		<div class="form-group">
+	    		<input type="radio" name="list_prepopulation" id="comprehensive" value="comprehensive" checked>&nbsp;&nbsp;For the Dustpocalypse (Full list)
+	    	</div>
+	    	<div class="form-group">
+	    		<input type="radio" name="list_prepopulation" id="lite" value="lite">&nbsp;&nbsp;As a Weekend Warrior (Light list)
+	    	</div>
+	    	<div class="form-group">
+	    		<input type="radio" name="list_prepopulation" id="empty" value="empty">&nbsp;&nbsp;Radically Self-Reliantly (Empty list)
+	    	</div>
+  		</div>
+		</div>
+	</div>
+	<div class="col-md-8">
+		<h3 class="text-center">Playa Packing List</h3>
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+			
+			<ul ng-repeat="itemPerCategory in itemsToFilter() | filter:filterCategories | orderBy:'category'" class="">
 
-			<div class="panel panel-default panel-category panel-{{ itemPerCategory.category }}">
+				<div class="panel panel-default panel-category panel-{{ itemPerCategory.category }}">
 
-				<div class="panel-heading" role="tab" id="heading{{$index}}">
-					<h2 class="panel-title">
-						<i class="fa fa-angle-right" ng-hide="showItems"></i>
-						<i class="fa fa-angle-down" ng-show="showItems"></i>
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}" aria-expanded="false" aria-controls="collapse{{$index}}" class="accordion-link" ng-click="showItems = ! showItems">
-							{{ itemPerCategory.category }}
-						</a>
-					</h2>
-				</div>
+					<div class="panel-heading" role="tab" id="heading{{$index}}">
+						<h2 class="panel-title">
+							<i class="fa fa-angle-right" ng-hide="showItems"></i>
+							<i class="fa fa-angle-down" ng-show="showItems"></i>
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}" aria-expanded="false" aria-controls="collapse{{$index}}" class="accordion-link" ng-click="showItems = ! showItems">
+								{{ itemPerCategory.category }}
+							</a>
+						</h2>
+					</div>
 
-				<div class="panel-collapse collapse" id="collapse{{$index}}" role="tabpanel" aria-labelledby="heading{{$index}}">
-					<div class="row">
+					<div class="panel-collapse collapse" id="collapse{{$index}}" role="tabpanel" aria-labelledby="heading{{$index}}">
+						<div class="row">
 
-						<div class="col-md-12 col-sm-12 panel-body">
-							<li ng-repeat="item in items | filter:{category: itemPerCategory.category} | orderBy:'created_at'" class="list-item col-md-6">
-								<div class="item-information">
-									<span ng-click="checkItem(item)">
-										<i class="checkbox show-{{item.checked}} fa fa-check-square-o fa-2x"></i>
-									</span>
-									<span ng-click="checkItem(item)">
-										<i class="checkbox hide-{{item.checked}} fa fa-square-o fa-2x"></i>
-									</span>
-									<span ng-dblclick="editItem(item)" ng-click="checkItem(item)" class="done-{{item.checked}} hide-{{item.editing}} item-name">
-										{{item.name}}
-										<a href="javascript:void(0)" ng-click="deleteItem(item)">
-											<i class="text-white fa fa-times delete-task"></i>
-										</a>
-									</span>
-									<span class="show-{{item.editing}}">
-										<form ng-submit="doneEditing(item)">
-											<input type="text" class="form-control edit-item-input" value="{{item.name}}" ng-model="item.name" ng-blur="doneEditing(item)">
-										</form>
-									</span>
-								</div>
+							<div class="col-md-12 col-sm-12 panel-body">
+								<li ng-repeat="item in items | filter:{category: itemPerCategory.category} | orderBy:'created_at'" class="list-item col-md-6">
+									<div class="item-information">
+										<span ng-click="checkItem(item)">
+											<i class="checkbox show-{{item.checked}} fa fa-check-square-o fa-2x"></i>
+										</span>
+										<span ng-click="checkItem(item)">
+											<i class="checkbox hide-{{item.checked}} fa fa-square-o fa-2x"></i>
+										</span>
+										<span ng-dblclick="editItem(item)" ng-click="checkItem(item)" class="done-{{item.checked}} hide-{{item.editing}} item-name">
+											{{item.name}}
+											<a href="javascript:void(0)" ng-click="deleteItem(item)">
+												<i class="text-white fa fa-times delete-task"></i>
+											</a>
+										</span>
+										<span class="show-{{item.editing}}">
+											<form ng-submit="doneEditing(item)">
+												<input type="text" class="form-control edit-item-input" value="{{item.name}}" ng-model="item.name" ng-blur="doneEditing(item)">
+											</form>
+										</span>
+									</div>
+								</li>
+							</div>
+						</div>
+						<div class="item-edit-instructions row">
+							<div class="col-md-12">
+								<span class="text-muted pull-right">
+									*Double click on an item to edit
+								</span>
+							</div>
+						</div>
+
+						<div class="row new-item-row">
+							<li class="list-item col-md-12">
+								<form class='add-item-form' ng-submit="addItem(itemPerCategory.category, newItem.name)">
+									<div class="col-sm-12">
+										<div class="input-group">
+								      <input type="text" class="form-control" ng-model="newItem.name" placeholder="Add item">
+							      	<span class="input-group-btn">
+							        	<input type="submit" class="btn add-item-button" value="Add">
+							      	</span>
+								    </div>
+									</div>
+								</form>
 							</li>
 						</div>
 					</div>
-					<div class="item-edit-instructions row">
-						<div class="col-md-12">
-							<span class="text-muted pull-right">
-								*Double click on an item to edit
-							</span>
-						</div>
-					</div>
-
-					<div class="row new-item-row">
-						<li class="list-item col-md-12">
-							<form class='add-item-form' ng-submit="addItem(itemPerCategory.category, newItem.name)">
-								<div class="col-sm-12">
-									<div class="input-group">
-							      <input type="text" class="form-control" ng-model="newItem.name" placeholder="Add item">
-						      	<span class="input-group-btn">
-						        	<input type="submit" class="btn add-item-button" value="Add">
-						      	</span>
-							    </div>
-								</div>
-							</form>
-						</li>
-					</div>
+					
 				</div>
-				
-			</div>
-		</ul>
-		
-<!-- 		<ul class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-			<div class="row panel panel-default panel-category panel-notes">
-				<div class="panel-heading">
-					<h2 class="panel-title">Notes</h2>
+			</ul>
+			
+	<!-- 		<ul class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+				<div class="row panel panel-default panel-category panel-notes">
+					<div class="panel-heading">
+						<h2 class="panel-title">Notes</h2>
+					</div>
+					Add notes input here
 				</div>
-				Add notes input here
-			</div>
-		</ul> -->
+			</ul> -->
 
+		</div>
 	</div>
 
 </div>

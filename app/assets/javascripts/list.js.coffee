@@ -7,7 +7,7 @@ app.factory "Item", ["$resource", ($resource) ->
 @ListCtrl = ["$scope", "Item", ($scope, Item) ->
 	$scope.items = Item.query()
 
-	indexedCategories = []
+	$scope.categories = ['Camp', 'Clothing', 'Documents and Money', 'Food and Drink', 'Medicine', 'Miscellaneous', 'Personal Items', 'Toiletries']
 
 	$scope.addItem = (category, newItemName) ->
 		item = Item.save({name: newItemName, category: category, necessity: true, default: false})
@@ -30,16 +30,10 @@ app.factory "Item", ["$resource", ($resource) ->
 		item.editing = false
 		item.$update()
 
-	$scope.itemsToFilter = ->
-		indexedCategories = []
-		return $scope.items
-
-	$scope.filterCategories = (item) ->
-		categoryIsNew = indexedCategories.indexOf(item.category) == -1
-		if categoryIsNew
-			indexedCategories.push(item.category)
-		return categoryIsNew
-
+	$scope.emptyList = ->
+		for item in $scope.items
+			item.$destroy()
+		$scope.items = []
 ]
 
 app.directive 'listItem', ->

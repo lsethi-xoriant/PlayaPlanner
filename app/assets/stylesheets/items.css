@@ -72,6 +72,10 @@ i.checkbox {
 	color: #FFF;
 }
 
+.panel #list-empty-submit {
+	color: #2E2E2E !important;
+}
+
 .panel-Camp .panel-heading, 
 .panel-Camp input[type='submit'], 
 .panel-notes .panel-heading,

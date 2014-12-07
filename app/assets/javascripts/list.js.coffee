@@ -31,9 +31,10 @@ app.factory "Item", ["$resource", ($resource) ->
 		item.$update()
 
 	$scope.emptyList = ->
-		for item in $scope.items
-			item.$destroy()
-		$scope.items = []
+		if confirm 'Are you sure you want to empty your list?'
+			for item in $scope.items
+				item.$destroy()
+			$scope.items = []
 ]
 
 app.directive 'listItem', ->

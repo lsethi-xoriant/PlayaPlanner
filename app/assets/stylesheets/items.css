@@ -63,6 +63,21 @@ i.checkbox {
 	margin: 25px 0px 30px;
 }
 
+.progress {
+	margin-bottom: 10px;
+}
+
+.progress .progress-bar {
+	color: #383838;
+	background-color: #F2C269;
+	font-weight: bold;
+}
+
+.badge {
+	color: #383838;
+	background-color: #D6D6D6;
+}
+
 .panels-container {
 	margin-bottom: 30px;
 }

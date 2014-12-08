@@ -6,11 +6,24 @@
 					<b>Welcome to Playa Planner!</b>
 				</p>  
 				<p>
-					Sign in to view your packing list, or use these pre-populated items to start. When you're done - save, print, or email your list.
+					Sign in to view your packing list, or use these pre-populated items to start. When you're done, you can save or print your list.
 				</p>
 				<p>
 					Tip:&nbsp;&nbsp;Double click on an item to edit
 				</p>
+			</div>
+		</div>
+		<div class="panel panel-default intro-panel">
+			<div class="panel-body">
+				<p>
+					<b>Completed Items</b>
+					<span class="badge pull-right">{{(items | filter:{checked:'true'}).length}} / {{items.length}}</span>
+				</p>
+				<div class="progress">
+					<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{(items | filter:{checked:'true'}).length}}" aria-valuemin="0" aria-valuemax="{{items.length}}" style="width: {{(items | filter:{checked:'true'}).length / items.length * 100}}%">
+						{{((items | filter:{checked:'true'}).length / items.length * 100) | number:1}}%
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="panel panel-default intro-panel">
@@ -26,7 +39,7 @@
 		</div>
 	</div>
 	<div class="col-md-8 panels-container">
-		<h3 class='packing-list-header'>Playa Packing List</h3>
+		<h3 class='packing-list-header text-center'>Packing List</h3>
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 			<ul ng-repeat="category in categories">
@@ -86,16 +99,6 @@
 					</div>
 				</div>
 			</ul>
-			
-	<!-- 		<ul class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-				<div class="row panel panel-default panel-category panel-notes">
-					<div class="panel-heading">
-						<h2 class="panel-title">Notes</h2>
-					</div>
-					Add notes input here
-				</div>
-			</ul> -->
-
 		</div>
 	</div>
 

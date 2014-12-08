@@ -3,7 +3,7 @@ prawn_document(page_size: 'A4', page_layout: :portrait) do |pdf|
 	category = nil
 	count = 0
 	@items.each do |item|
-		pdf.start_new_page if pdf.cursor < 50
+		pdf.start_new_page if pdf.cursor < 50 && count.even?
 		if category != item.category
 			if category.nil?
 				pdf.move_down 15

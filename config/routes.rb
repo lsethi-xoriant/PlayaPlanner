@@ -4,4 +4,5 @@ PlayaPlanner::Application.routes.draw do
 	resource :session, :only => [:create, :destroy]
 	resources :items, only: [:index, :create, :update, :destroy]
 	get '/print' => 'list#print'
+	get '/email' => 'list#email'
 end

@@ -10,4 +10,10 @@ class ListController < ApplicationController
 		@items = current_user.items.order('category')
 		render '/list/print.pdf.prawn'
 	end
+
+	def email
+		#TODO use delayed job
+		UserMailer.packing_list(current_user).deliver!
+		redirect_to :back
+	end
 end

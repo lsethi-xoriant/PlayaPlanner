@@ -131,3 +131,9 @@ i.checkbox {
 .panel-Medicine input[type='submit'] {
 	background-color: #DA9313;
 }
+
+@media only screen and (max-width:987px) {
+	.panels-container ul {
+		padding: 0px;
+	}
+}

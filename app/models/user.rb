@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 	validates :password, length: { minimum: 6, allow_nil: true }#, unless: :guest
 	validates :username, uniqueness: true, allow_nil: true
 	
-	after_create :initialize_default_items, if: :guest #all users start as guest
+	after_create :initialize_default_items, if: :guest
 
 	has_many :items, dependent: :destroy
 	has_one :current_session_token
@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
 		CSV.parse(item_data, :headers => true) do |row|
 			i = Item.new(row.to_hash)
 			i.user_id = self.id
-			i.save!
+			i.save
 		end
 	end
 end

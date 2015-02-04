@@ -1,0 +1,30 @@
+<div class="modal fade" id="email-modal" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Email List</h4>
+      </div>
+
+      <form action="<%= email_path %>" method="GET" role="form">
+        <div class="modal-body">
+          <p class="text-muted">
+            <i>
+              We'll email this list to the email you enter below. We won't store or share your email address.
+            </i>
+          </p>
+          <div class="form-group">
+            <label for="user_email">Enter email</label>
+            <input type="text" class="form-control" id="user_email" name="user[email]" placeholder="Enter email">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Email List</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

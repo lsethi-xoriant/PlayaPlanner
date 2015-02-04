@@ -28,7 +28,7 @@
               <a href="<%= print_path %>" target="_blank">Print</a>
             </li>
             <li>
-              <a href="<%= email_url %>">Email</a>
+              <a href="javascript:void(0)" data-toggle="modal" data-target="#email-modal">Email</a>
             </li>
           </ul>
         </li>
@@ -36,7 +36,7 @@
         	<% if current_user.guest %>
   	      	<a href="javascript:void(0)" data-toggle="modal" data-target="#sign-in-modal">Sign In</a>
         	<% else %>
-        		<%= link_to "Sign Out", session_url, :method => :delete %>
+        		<%= link_to "Sign Out", session_url, method: :delete %>
       		<% end %>
         </li>
       </ul>
@@ -60,5 +60,7 @@
       </div>
     </div>
   </div>
+
+  <%= render partial: "list/email_form.html.erb" %>
 </body>
 </html>

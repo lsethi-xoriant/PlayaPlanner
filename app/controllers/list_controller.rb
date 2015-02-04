@@ -13,7 +13,8 @@ class ListController < ApplicationController
 
 	def email
 		#TODO use delayed job
-		UserMailer.packing_list(current_user).deliver!
+		email = params[:user][:email]
+		UserMailer.packing_list(current_user, email).deliver
 		redirect_to :back
 	end
 end

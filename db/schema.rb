@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20141001045731) do
   enable_extension "plpgsql"
 
   create_table "items", force: true do |t|
-    t.integer  "user_id"
     t.string   "name",                       null: false
     t.boolean  "checked",    default: false, null: false
     t.datetime "created_at"
@@ -26,6 +25,7 @@ ActiveRecord::Schema.define(version: 20141001045731) do
     t.string   "category"
     t.boolean  "default",    default: false
     t.boolean  "necessity",  default: false
+    t.integer  "user_id"
   end
 
   add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree

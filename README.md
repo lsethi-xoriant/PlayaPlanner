@@ -5,7 +5,7 @@ An app to help plan for for festivals, burning man & camping trips: [playa-plann
 -Built using Rails, Coffeescript, and AngularJS  
 -Allows for guest users to make lists and save info later by creating an account  
 -Common camping necessities are pre-populated from CSV  
--Uses Prawn to generate printable version of list (pdf)
+-Uses Prawn to generate printable version of list (pdf)  
 -Shows progress bar for completed tasks
 
 ###To Do
